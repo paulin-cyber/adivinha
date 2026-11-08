@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jogo de Adivinhação</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main>
+        <h1>Jogo de Adivinhação</h1>
+        <p>Tente descobrir o número secreto entre 1 e 100!</p>
+        <button id="btn-iniciar">Começar</button>
+    </main>
     <script>
         function verificarPalpite(palpite, numero) {
             if (palpite < numero) {
-            alert("Muito baixo!")
-            return false
+                alert("Muito baixo!")
+                return false
             }
             else if (palpite > numero) {
                 alert("Muito alto!")
@@ -22,18 +28,21 @@
             }
         }
 
-    let numero = Math.floor(Math.random() * 100) + 1
-    let palpite = Number(prompt("Digite um número de 1 a 100: "))
+        function iniciarJogo() {
+            let numero = Math.floor(Math.random() * 100) + 1
+            let resposta = prompt("Digite um número de 1 a 100: ")
 
-    while (true) {
-        
-        let acertou = verificarPalpite(palpite, numero)
-        
-        if (acertou === true) {
-            break
+            while (resposta !== null) {
+                let acertou = verificarPalpite(Number(resposta), numero)
+
+                if (acertou === true) {
+                    break
+                }
+                resposta = prompt("Digite um número de 1 a 100: ")
+            }
         }
-        palpite = Number(prompt("Digite um número de 1 a 100: "))
-    }
+
+        document.getElementById("btn-iniciar").addEventListener("click", iniciarJogo)
     </script>
 </body>
 </html>
