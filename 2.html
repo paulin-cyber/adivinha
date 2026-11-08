@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function verificarPalpite(palpite, numero) {
+            if (palpite < numero) {
+            alert("Muito baixo!")
+            return false
+            }
+            else if (palpite > numero) {
+                alert("Muito alto!")
+                return false
+            }
+            else {
+                alert(`Seu palpite está certo! O número era ${numero}`)
+                return true
+            }
+        }
+
+    let numero = Math.floor(Math.random() * 100) + 1
+    let palpite = Number(prompt("Digite um número de 1 a 100: "))
+
+    while (true) {
+        
+        let acertou = verificarPalpite(palpite, numero)
+        
+        if (acertou === true) {
+            break
+        }
+        palpite = Number(prompt("Digite um número de 1 a 100: "))
+    }
+    </script>
+</body>
+</html>
